@@ -264,17 +264,6 @@ def handle_message(message):
     if banned_users_collection.find_one({'user_id': user.id}):
         bot.send_message(message.chat.id, "You are banned from using this bot.")
         return
-
-    # Check User Member or Not
-    if not is_member(user.id):
-        bot.send_message(
-            message.chat.id,
-            "ʏᴏᴜ ᴍᴜsᴛ ᴊᴏɪɴ ᴍʏ ᴄʜᴀɴɴᴇʟ ᴛᴏ ᴜsᴇ ᴍᴇ.",
-            reply_markup=telebot.types.InlineKeyboardMarkup().add(
-                telebot.types.InlineKeyboardButton("〇 𝐉𝐨𝐢𝐧𝐞 𝐂𝐡𝐚𝐧𝐧𝐞𝐥 〇", url=f"https://t.me/+F2XJ2dYsYYg2ZGJl")
-            )
-        )
-        return
         
     video_url = message.text
     chat_id = message.chat.id
